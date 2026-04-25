@@ -1,0 +1,416 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  SUB_ADMIN
+  VENDOR
+  BUYER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING
+}
+
+enum VendorStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+enum ProductStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+  REJECTED
+}
+
+enum InquiryStatus {
+  PENDING
+  RESPONDED
+  CLOSED
+  SPAM
+}
+
+enum SubscriptionPlan {
+  FREE
+  BASIC
+  PREMIUM
+  ENTERPRISE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELLED
+  PENDING
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+model User {
+  id              String     @id @default(cuid())
+  name            String
+  email           String     @unique
+  phone           String?    @unique
+  password        String
+  role            UserRole   @default(BUYER)
+  status          UserStatus @default(ACTIVE)
+  emailVerified   Boolean    @default(false)
+  phoneVerified   Boolean    @default(false)
+  avatar          String?
+  otp             String?
+  otpExpiry       DateTime?
+  resetToken      String?
+  resetTokenExpiry DateTime?
+  lastLogin       DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  deletedAt       DateTime?
+
+  vendor          Vendor?
+  buyerInquiries  Inquiry[]  @relation("BuyerInquiries")
+  sentMessages    Chat[]     @relation("SentMessages")
+  receivedMessages Chat[]   @relation("ReceivedMessages")
+  wishlist        Wishlist[]
+  orders          Order[]    @relation("BuyerOrders")
+  notifications   Notification[]
+  adminLogs       AdminLog[] @relation("AdminUser")
+  targetLogs      AdminLog[] @relation("TargetUser")
+
+  @@index([email])
+  @@index([phone])
+  @@index([role])
+  @@index([status])
+  @@map("users")
+}
+
+model Vendor {
+  id              String       @id @default(cuid())
+  userId          String       @unique
+  companyName     String
+  gstNumber       String?      @unique
+  panNumber       String?
+  description     String?      @db.Text
+  address         String?
+  city            String?
+  state           String?
+  pincode         String?
+  country         String       @default("India")
+  website         String?
+  logo            String?
+  banner          String?
+  status          VendorStatus @default(PENDING)
+  isVerified      Boolean      @default(false)
+  totalProducts   Int          @default(0)
+  totalLeads      Int          @default(0)
+  totalViews      Int          @default(0)
+  rating          Float        @default(0)
+  reviewCount     Int          @default(0)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  deletedAt       DateTime?
+
+  user            User         @relation(fields: [userId], references: [id])
+  products        Product[]
+  inquiries       Inquiry[]    @relation("VendorInquiries")
+  subscriptions   Subscription[]
+  analytics       VendorAnalytics[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([city])
+  @@map("vendors")
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?
+  image       String?
+  icon        String?
+  parentId    String?
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryHierarchy")
+  products    Product[]
+
+  @@index([parentId])
+  @@index([slug])
+  @@map("categories")
+}
+
+model Product {
+  id              String        @id @default(cuid())
+  vendorId        String
+  categoryId      String
+  title           String
+  slug            String        @unique
+  description     String        @db.Text
+  shortDesc       String?
+  price           Decimal       @db.Decimal(10, 2)
+  minOrderQty     Int           @default(1)
+  unit            String        @default("piece")
+  sku             String?       @unique
+  stock           Int           @default(0)
+  images          Json          // Array of image URLs
+  specifications  Json?         // Key-value pairs
+  tags            Json?         // Array of tags
+  status          ProductStatus @default(PENDING)
+  isFeatured      Boolean       @default(false)
+  viewCount       Int           @default(0)
+  inquiryCount    Int           @default(0)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  deletedAt       DateTime?
+
+  vendor          Vendor        @relation(fields: [vendorId], references: [id])
+  category        Category      @relation(fields: [categoryId], references: [id])
+  inquiries       Inquiry[]
+  wishlistItems   Wishlist[]
+  orderItems      OrderItem[]
+
+  @@index([vendorId])
+  @@index([categoryId])
+  @@index([status])
+  @@index([slug])
+  @@map("products")
+}
+
+model Inquiry {
+  id          String        @id @default(cuid())
+  buyerId     String
+  vendorId    String
+  productId   String?
+  subject     String
+  message     String        @db.Text
+  quantity    Int?
+  unit        String?
+  status      InquiryStatus @default(PENDING)
+  response    String?       @db.Text
+  respondedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  buyer       User          @relation("BuyerInquiries", fields: [buyerId], references: [id])
+  vendor      Vendor        @relation("VendorInquiries", fields: [vendorId], references: [id])
+  product     Product?      @relation(fields: [productId], references: [id])
+
+  @@index([buyerId])
+  @@index([vendorId])
+  @@index([productId])
+  @@index([status])
+  @@map("inquiries")
+}
+
+model Chat {
+  id          String   @id @default(cuid())
+  senderId    String
+  receiverId  String
+  message     String   @db.Text
+  isRead      Boolean  @default(false)
+  readAt      DateTime?
+  attachments Json?
+  createdAt   DateTime @default(now())
+
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([createdAt])
+  @@map("chats")
+}
+
+model Subscription {
+  id              String             @id @default(cuid())
+  vendorId        String
+  plan            SubscriptionPlan   @default(FREE)
+  status          SubscriptionStatus @default(ACTIVE)
+  startDate       DateTime           @default(now())
+  endDate         DateTime?
+  price           Decimal            @db.Decimal(10, 2) @default(0)
+  paymentId       String?
+  razorpayOrderId String?
+  features        Json?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  vendor          Vendor             @relation(fields: [vendorId], references: [id])
+  payments        Payment[]
+
+  @@index([vendorId])
+  @@index([status])
+  @@map("subscriptions")
+}
+
+model Payment {
+  id              String        @id @default(cuid())
+  subscriptionId  String?
+  orderId         String?
+  amount          Decimal       @db.Decimal(10, 2)
+  currency        String        @default("INR")
+  status          PaymentStatus @default(PENDING)
+  razorpayId      String?
+  razorpayOrderId String?
+  receipt         String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  subscription    Subscription? @relation(fields: [subscriptionId], references: [id])
+  order           Order?        @relation(fields: [orderId], references: [id])
+
+  @@index([subscriptionId])
+  @@index([orderId])
+  @@map("payments")
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  buyerId         String
+  orderNumber     String      @unique
+  totalAmount     Decimal     @db.Decimal(10, 2)
+  status          OrderStatus @default(PENDING)
+  shippingAddress Json
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  buyer           User        @relation("BuyerOrders", fields: [buyerId], references: [id])
+  items           OrderItem[]
+  payments        Payment[]
+
+  @@index([buyerId])
+  @@index([orderNumber])
+  @@index([status])
+  @@map("orders")
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  productId   String
+  quantity    Int
+  price       Decimal  @db.Decimal(10, 2)
+  total       Decimal  @db.Decimal(10, 2)
+  createdAt   DateTime @default(now())
+
+  order       Order    @relation(fields: [orderId], references: [id])
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@index([orderId])
+  @@index([productId])
+  @@map("order_items")
+}
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@map("wishlists")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      String   @default("info")
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([isRead])
+  @@map("notifications")
+}
+
+model VendorAnalytics {
+  id        String   @id @default(cuid())
+  vendorId  String
+  date      DateTime @db.Date
+  views     Int      @default(0)
+  leads     Int      @default(0)
+  clicks    Int      @default(0)
+  createdAt DateTime @default(now())
+
+  vendor    Vendor   @relation(fields: [vendorId], references: [id])
+
+  @@unique([vendorId, date])
+  @@index([vendorId])
+  @@map("vendor_analytics")
+}
+
+model AdminLog {
+  id         String   @id @default(cuid())
+  adminId    String
+  targetId   String?
+  action     String
+  entity     String
+  entityId   String?
+  details    Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  admin      User     @relation("AdminUser", fields: [adminId], references: [id])
+  target     User?    @relation("TargetUser", fields: [targetId], references: [id])
+
+  @@index([adminId])
+  @@index([entity])
+  @@index([createdAt])
+  @@map("admin_logs")
+}
+
+model CmsPage {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String   @db.LongText
+  metaTitle   String?
+  metaDesc    String?
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("cms_pages")
+}
