@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { apiResponse, apiError, paginate, paginationMeta } from '@/lib/middleware';
 
 export async function GET(req: NextRequest) {

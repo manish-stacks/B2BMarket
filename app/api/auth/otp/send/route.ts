@@ -1,10 +1,10 @@
 // app/api/auth/otp/send/route.ts
 import { NextRequest } from 'next/server';
 import { z } from 'zod';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { generateOtp } from '@/lib/auth';
 import { successResponse, errorResponse, handleZodError } from '@/lib/api-helpers';
-import { sendEmail, getOtpEmailHtml } from '@/lib/email';
+import { sendEmail, emailTemplates } from '@/lib/email';
 
 const schema = z.object({
   email: z.string().email(),
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
     await sendEmail({
       to: data.email,
       subject: 'Your OTP Code - IndiaB2B',
-      html: getOtpEmailHtml(code),
+      html: emailTemplates.otp(code),
     });
 
     // In dev, return OTP for testing

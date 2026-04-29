@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import crypto from 'crypto';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { apiResponse, apiError } from '@/lib/middleware';
 import { sendEmail, emailTemplates } from '@/lib/email';
 

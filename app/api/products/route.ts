@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { withAuth, apiResponse, apiError, paginate, paginationMeta } from '@/lib/middleware';
 import { AuthenticatedRequest } from '@/lib/middleware';
 import { generateSlug } from '@/utils/helpers';

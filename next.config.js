@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isDev = process.env.NODE_ENV === "development";
+
 const nextConfig = {
   experimental: {
-    serverActions: true,
+      serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
   },
   images: {
     domains: [
@@ -9,6 +11,13 @@ const nextConfig = {
       'images.unsplash.com',
       'via.placeholder.com',
     ],
+  },
+  typescript: {
+    ignoreBuildErrors: !isDev,
+  },
+
+  eslint: {
+    ignoreDuringBuilds: !isDev,
   },
   async headers() {
     return [

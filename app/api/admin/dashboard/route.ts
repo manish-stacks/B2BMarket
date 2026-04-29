@@ -1,6 +1,6 @@
 // app/api/admin/dashboard/route.ts
 import { NextRequest } from 'next/server';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { authenticateRequest, successResponse, errorResponse } from '@/lib/api-helpers';
 
 export async function GET(req: NextRequest) {

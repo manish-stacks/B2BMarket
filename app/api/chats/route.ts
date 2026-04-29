@@ -1,7 +1,7 @@
 // app/api/chats/route.ts
 import { NextRequest } from 'next/server';
 import { z } from 'zod';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { authenticateRequest, successResponse, errorResponse, handleZodError, getPagination } from '@/lib/api-helpers';
 
 const sendMessageSchema = z.object({

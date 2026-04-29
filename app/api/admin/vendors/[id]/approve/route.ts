@@ -1,7 +1,7 @@
 // app/api/admin/vendors/[id]/approve/route.ts
 import { NextRequest } from 'next/server';
 import { z } from 'zod';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { authenticateRequest, successResponse, errorResponse } from '@/lib/api-helpers';
 import { sendEmail } from '@/lib/email';
 

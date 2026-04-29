@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ZodError } from 'zod';
 import { verifyToken, extractTokenFromRequest } from './auth';
 import { Role, ApiResponse } from '@/types';
-import prisma from './prisma';
+import { prisma } from './prisma';
 
 export function successResponse<T>(data: T, message?: string, status = 200): NextResponse {
   return NextResponse.json({ success: true, data, message } as ApiResponse<T>, { status });
