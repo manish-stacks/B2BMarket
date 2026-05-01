@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 25, 2026 at 08:05 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: Apr 30, 2026 at 04:24 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,18 +65,18 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `image`, `icon`, `parentId`, `sortOrder`, `isActive`, `createdAt`, `updatedAt`) VALUES
-('cmochntr60009sx3eswvcs2u0', 'Chemicals & Plastics', 'chemicals', NULL, NULL, '🧪', NULL, 3, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000asx3e0id4qmjo', 'Automobiles & Parts', 'automobiles', NULL, NULL, '🚗', NULL, 7, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000bsx3eoab8jyoh', 'Food & Beverages', 'food-beverages', NULL, NULL, '🍎', NULL, 8, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000csx3e82v5l1tt', 'Textiles & Garments', 'textiles', NULL, NULL, '👕', NULL, 5, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000dsx3ev0ad7k48', 'Construction Materials', 'construction', NULL, NULL, '🏗️', NULL, 4, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000esx3egv7ctjuk', 'Electronics & Electricals', 'electronics', NULL, NULL, '⚡', NULL, 2, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000fsx3e1hoqqupz', 'Industrial Machinery', 'industrial-machinery', NULL, NULL, '⚙️', NULL, 1, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntr8000gsx3earmq0jtc', 'Agriculture Products', 'agriculture', NULL, NULL, '🌾', NULL, 6, 1, '2026-04-24 05:47:25.410', '2026-04-24 05:47:25.410'),
-('cmochntre000lsx3epolswll8', 'Pumps & Valves', 'pumps-valves', NULL, NULL, NULL, 'cmochntr8000fsx3e1hoqqupz', 0, 1, '2026-04-24 05:47:25.419', '2026-04-24 05:47:25.419'),
-('cmochntre000msx3eh7lvxqsr', 'Motors & Generators', 'motors-generators', NULL, NULL, NULL, 'cmochntr8000fsx3e1hoqqupz', 0, 1, '2026-04-24 05:47:25.419', '2026-04-24 05:47:25.419'),
-('cmochntre000nsx3eetvr4pgr', 'Cables & Wires', 'cables-wires', NULL, NULL, NULL, 'cmochntr8000esx3egv7ctjuk', 0, 1, '2026-04-24 05:47:25.419', '2026-04-24 05:47:25.419'),
-('cmochntre000osx3ez0n4ubdg', 'Circuit Boards', 'circuit-boards', NULL, NULL, NULL, 'cmochntr8000esx3egv7ctjuk', 0, 1, '2026-04-24 05:47:25.419', '2026-04-24 05:47:25.419');
+('cmolkhacl0009dqoeal8ph0eb', 'Industrial Machinery', 'industrial-machinery', NULL, NULL, '⚙️', NULL, 1, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000adqoecpra6qjw', 'Agriculture Products', 'agriculture', NULL, NULL, '🌾', NULL, 6, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000bdqoerdofnul0', 'Electronics & Electricals', 'electronics', NULL, NULL, '⚡', NULL, 2, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000cdqoegshusvu8', 'Automobiles & Parts', 'automobiles', NULL, NULL, '🚗', NULL, 7, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000ddqoegrvuu8kz', 'Chemicals & Plastics', 'chemicals', NULL, NULL, '🧪', NULL, 3, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000edqoehm242r7j', 'Construction Materials', 'construction', NULL, NULL, '🏗️', NULL, 4, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000fdqoefaq166m3', 'Food & Beverages', 'food-beverages', NULL, NULL, '🍎', NULL, 8, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacm000gdqoel4g3ewfo', 'Textiles & Garments', 'textiles', NULL, NULL, '👕', NULL, 5, 1, '2026-04-30 14:16:14.757', '2026-04-30 14:16:14.757'),
+('cmolkhacp000ldqoewa2cmr9b', 'Pumps & Valves', 'pumps-valves', NULL, NULL, NULL, 'cmolkhacl0009dqoeal8ph0eb', 0, 1, '2026-04-30 14:16:14.762', '2026-04-30 14:16:14.762'),
+('cmolkhacp000mdqoevy0k5gje', 'Motors & Generators', 'motors-generators', NULL, NULL, NULL, 'cmolkhacl0009dqoeal8ph0eb', 0, 1, '2026-04-30 14:16:14.762', '2026-04-30 14:16:14.762'),
+('cmolkhacp000ndqoezm4oc8k2', 'Circuit Boards', 'circuit-boards', NULL, NULL, NULL, 'cmolkhacm000bdqoerdofnul0', 0, 1, '2026-04-30 14:16:14.762', '2026-04-30 14:16:14.762'),
+('cmolkhacp000odqoehb2rbmrd', 'Cables & Wires', 'cables-wires', NULL, NULL, NULL, 'cmolkhacm000bdqoerdofnul0', 0, 1, '2026-04-30 14:16:14.762', '2026-04-30 14:16:14.762');
 
 -- --------------------------------------------------------
 
@@ -140,11 +140,8 @@ CREATE TABLE `inquiries` (
 --
 
 INSERT INTO `inquiries` (`id`, `buyerId`, `vendorId`, `productId`, `subject`, `message`, `quantity`, `unit`, `status`, `response`, `respondedAt`, `createdAt`, `updatedAt`) VALUES
-('cmochnts30016sx3ejlmjz4c7', 'cmochntr30008sx3edh2sghuh', 'cmochntqt0004sx3epg9bd03d', 'cmochntri000qsx3ezozcnfto', 'Price inquiry for bulk order', 'We need 10 units of this pump for our factory. Can you provide a bulk discount and what is the delivery timeline?', 10, 'piece', 'PENDING', NULL, NULL, '2026-04-24 05:47:25.443', '2026-04-24 05:47:25.443'),
-('cmochnts50018sx3ejrs25mn5', 'cmochntr30008sx3edh2sghuh', 'cmochntqt0004sx3epg9bd03d', 'cmochntri000qsx3ezozcnfto', 'Technical specifications needed', 'Please share detailed technical specifications and installation manual for this pump.', 2, 'piece', 'RESPONDED', 'Thank you for your inquiry. We have sent the technical documentation to your email.', NULL, '2026-04-24 05:47:25.445', '2026-04-24 05:47:25.445'),
-('cmocsi6lt001639hzsnqx2ao7', 'cmochntr30008sx3edh2sghuh', 'cmochntqt0004sx3epg9bd03d', 'cmochntri000qsx3ezozcnfto', 'Price inquiry for bulk order', 'We need 10 units of this pump for our factory. Can you provide a bulk discount and what is the delivery timeline?', 10, 'piece', 'PENDING', NULL, NULL, '2026-04-24 10:50:57.905', '2026-04-24 10:50:57.905'),
-('cmocsi6m3001839hzx367qxkp', 'cmochntr30008sx3edh2sghuh', 'cmochntqt0004sx3epg9bd03d', 'cmochntri000qsx3ezozcnfto', 'Technical specifications needed', 'Please share detailed technical specifications and installation manual for this pump.', 2, 'piece', 'RESPONDED', 'Thank you for your inquiry. We have sent the technical documentation to your email.', NULL, '2026-04-24 10:50:57.915', '2026-04-24 10:50:57.915'),
-('cmodx3222000111c7sadrvume', 'cmochntr30008sx3edh2sghuh', 'cmochntr00007sx3e70rz5ybh', 'cmochntrv0010sx3efwyetmoj', 'Inquiry for LED Panel Light 40W', ' test test v gfdsgds', 200, 'piece', 'PENDING', NULL, NULL, '2026-04-25 05:46:56.425', '2026-04-25 05:46:56.425');
+('cmolkhacy0016dqoeftd90kqh', 'cmolkhack0008dqoe06dgh2h8', 'cmolkhach0004dqoewn3i6nl8', 'cmolkhacq000qdqoei6qwzp25', 'Price inquiry for bulk order', 'We need 10 units of this pump for our factory. Can you provide a bulk discount and what is the delivery timeline?', 10, 'piece', 'PENDING', NULL, NULL, '2026-04-30 14:16:14.771', '2026-04-30 14:16:14.771'),
+('cmolkhacz0018dqoe6or5rd1g', 'cmolkhack0008dqoe06dgh2h8', 'cmolkhach0004dqoewn3i6nl8', 'cmolkhacq000qdqoei6qwzp25', 'Technical specifications needed', 'Please share detailed technical specifications and installation manual for this pump.', 2, 'piece', 'RESPONDED', 'Thank you for your inquiry. We have sent the technical documentation to your email.', NULL, '2026-04-30 14:16:14.772', '2026-04-30 14:16:14.772');
 
 -- --------------------------------------------------------
 
@@ -168,13 +165,9 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `userId`, `title`, `message`, `type`, `isRead`, `link`, `createdAt`) VALUES
-('cmochnts80019sx3eitr4so2d', 'cmochntr30008sx3edh2sghuh', 'Welcome to B2B Marketplace', 'Start exploring thousands of products from verified vendors.', 'info', 0, NULL, '2026-04-24 05:47:25.448'),
-('cmochnts8001asx3e4t7ob38k', 'cmochntqo0002sx3e1ii2q4bx', 'Profile Approved', 'Your vendor profile has been approved. Start adding products now!', 'success', 0, NULL, '2026-04-24 05:47:25.448'),
-('cmochnts8001bsx3ei8jn4um1', 'cmochntq30000sx3eb19arpnr', 'New vendor registration', 'A new vendor has registered and awaiting approval.', 'info', 0, NULL, '2026-04-24 05:47:25.448'),
-('cmocsi6m8001939hz0ybykjzo', 'cmochntr30008sx3edh2sghuh', 'Welcome to B2B Marketplace', 'Start exploring thousands of products from verified vendors.', 'info', 0, NULL, '2026-04-24 10:50:57.921'),
-('cmocsi6m8001a39hzqraj6vz7', 'cmochntqo0002sx3e1ii2q4bx', 'Profile Approved', 'Your vendor profile has been approved. Start adding products now!', 'success', 0, NULL, '2026-04-24 10:50:57.921'),
-('cmocsi6m8001b39hz941hnowu', 'cmochntq30000sx3eb19arpnr', 'New vendor registration', 'A new vendor has registered and awaiting approval.', 'info', 0, NULL, '2026-04-24 10:50:57.921'),
-('cmodx322a000311c7udiih6hb', 'cmochntqy0005sx3e1k6dypow', 'New Inquiry', 'Amit Singh sent an inquiry', 'info', 0, '/dashboard/vendor/inquiries', '2026-04-25 05:46:56.435');
+('cmolkhad10019dqoedgqpbs7y', 'cmolkhack0008dqoe06dgh2h8', 'Welcome to B2B Marketplace', 'Start exploring thousands of products from verified vendors.', 'info', 0, NULL, '2026-04-30 14:16:14.773'),
+('cmolkhad1001adqoeiqg5zebe', 'cmolkhacg0002dqoehvh4lcg9', 'Profile Approved', 'Your vendor profile has been approved. Start adding products now!', 'success', 0, NULL, '2026-04-30 14:16:14.773'),
+('cmolkhad1001bdqoexbrc47x4', 'cmolkhac60000dqoedu8zqjbd', 'New vendor registration', 'A new vendor has registered and awaiting approval.', 'info', 0, NULL, '2026-04-30 14:16:14.773');
 
 -- --------------------------------------------------------
 
@@ -266,12 +259,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `vendorId`, `categoryId`, `title`, `slug`, `description`, `shortDesc`, `price`, `minOrderQty`, `unit`, `sku`, `stock`, `images`, `specifications`, `tags`, `status`, `isFeatured`, `viewCount`, `inquiryCount`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-('cmochntri000qsx3ezozcnfto', 'cmochntqt0004sx3epg9bd03d', 'cmochntr8000fsx3e1hoqqupz', 'Industrial Centrifugal Pump 5HP', 'industrial-centrifugal-pump-5hp', 'High-performance centrifugal pump for industrial water transfer applications. Made with cast iron body and stainless steel impeller. Ideal for chemical, water treatment, and general industrial use.', NULL, 15000.00, 1, 'piece', NULL, 50, '[\"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 2, 0, '2026-04-24 05:47:25.423', '2026-04-24 10:53:50.039', NULL),
-('cmochntrm000ssx3e04vxy5q3', 'cmochntqt0004sx3epg9bd03d', 'cmochntr8000fsx3e1hoqqupz', 'AC Induction Motor 10HP', 'ac-induction-motor-10hp', 'Energy-efficient AC induction motor suitable for industrial applications. IP55 protection rating. Available in 3-phase configuration.', NULL, 25000.00, 1, 'piece', NULL, 30, '[\"https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-24 05:47:25.427', '2026-04-24 05:47:25.427', NULL),
-('cmochntro000usx3ebw3h95w2', 'cmochntr00007sx3e70rz5ybh', 'cmochntr8000esx3egv7ctjuk', 'Arduino Mega 2560 R3 Board', 'arduino-mega-2560-r3', 'Official Arduino Mega 2560 R3 microcontroller board. 54 digital I/O pins, 16 analog inputs. USB connection, power jack, ICSP header.', NULL, 850.00, 10, 'piece', NULL, 500, '[\"https://images.unsplash.com/photo-1518770660439-4636190af475?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 2, 0, '2026-04-24 05:47:25.429', '2026-04-24 10:39:09.332', NULL),
-('cmochntrq000wsx3egz4s6rm2', 'cmochntr00007sx3e70rz5ybh', 'cmochntr8000esx3egv7ctjuk', 'Multi-strand Copper Wire 2.5mm', 'copper-wire-2-5mm', 'High-quality multi-strand copper wire for electrical installations. PVC insulated, 2.5mm cross-section. Available in 90m coils.', NULL, 1200.00, 5, 'coil', NULL, 200, '[\"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 4, 0, '2026-04-24 05:47:25.431', '2026-04-24 10:39:39.585', NULL),
-('cmochntrs000ysx3e51788x3d', 'cmochntqt0004sx3epg9bd03d', 'cmochntr8000dsx3ev0ad7k48', 'TMT Steel Bar 12mm Fe-500', 'tmt-steel-bar-12mm', 'High strength TMT steel bars Fe-500 grade. 12mm diameter. Used in RCC construction. ISI marked, corrosion resistant.', NULL, 65000.00, 1, 'MT', NULL, 100, '[\"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 6, 0, '2026-04-24 05:47:25.433', '2026-04-24 10:57:35.497', NULL),
-('cmochntrv0010sx3efwyetmoj', 'cmochntr00007sx3e70rz5ybh', 'cmochntr8000esx3egv7ctjuk', 'LED Panel Light 40W', 'led-panel-light-40w', 'Energy-saving LED panel light 40W. 4000 lumens output, 6500K cool white. Surface mount installation. 3 year warranty.', NULL, 450.00, 20, 'piece', NULL, 1000, '[\"https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 4, 0, '2026-04-24 05:47:25.435', '2026-04-25 05:46:38.785', NULL);
+('cmolkhacq000qdqoei6qwzp25', 'cmolkhach0004dqoewn3i6nl8', 'cmolkhacl0009dqoeal8ph0eb', 'Industrial Centrifugal Pump 5HP', 'industrial-centrifugal-pump-5hp', 'High-performance centrifugal pump for industrial water transfer applications. Made with cast iron body and stainless steel impeller. Ideal for chemical, water treatment, and general industrial use.', NULL, 15000.00, 1, 'piece', NULL, 50, '[\"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.762', '2026-04-30 14:16:14.762', NULL),
+('cmolkhacs000sdqoelo6t9nkx', 'cmolkhach0004dqoewn3i6nl8', 'cmolkhacl0009dqoeal8ph0eb', 'AC Induction Motor 10HP', 'ac-induction-motor-10hp', 'Energy-efficient AC induction motor suitable for industrial applications. IP55 protection rating. Available in 3-phase configuration.', NULL, 25000.00, 1, 'piece', NULL, 30, '[\"https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.764', '2026-04-30 14:16:14.764', NULL),
+('cmolkhacs000udqoedugfyh3z', 'cmolkhacj0007dqoe19deus79', 'cmolkhacm000bdqoerdofnul0', 'Arduino Mega 2560 R3 Board', 'arduino-mega-2560-r3', 'Official Arduino Mega 2560 R3 microcontroller board. 54 digital I/O pins, 16 analog inputs. USB connection, power jack, ICSP header.', NULL, 850.00, 10, 'piece', NULL, 500, '[\"https://images.unsplash.com/photo-1518770660439-4636190af475?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.765', '2026-04-30 14:16:14.765', NULL),
+('cmolkhact000wdqoezei6d7m4', 'cmolkhacj0007dqoe19deus79', 'cmolkhacm000bdqoerdofnul0', 'Multi-strand Copper Wire 2.5mm', 'copper-wire-2-5mm', 'High-quality multi-strand copper wire for electrical installations. PVC insulated, 2.5mm cross-section. Available in 90m coils.', NULL, 1200.00, 5, 'coil', NULL, 200, '[\"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.766', '2026-04-30 14:16:14.766', NULL),
+('cmolkhacu000ydqoelir7k00k', 'cmolkhach0004dqoewn3i6nl8', 'cmolkhacm000edqoehm242r7j', 'TMT Steel Bar 12mm Fe-500', 'tmt-steel-bar-12mm', 'High strength TMT steel bars Fe-500 grade. 12mm diameter. Used in RCC construction. ISI marked, corrosion resistant.', NULL, 65000.00, 1, 'MT', NULL, 100, '[\"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.766', '2026-04-30 14:16:14.766', NULL),
+('cmolkhacu0010dqoe92ywjcga', 'cmolkhacj0007dqoe19deus79', 'cmolkhacm000bdqoerdofnul0', 'LED Panel Light 40W', 'led-panel-light-40w', 'Energy-saving LED panel light 40W. 4000 lumens output, 6500K cool white. Surface mount installation. 3 year warranty.', NULL, 450.00, 20, 'piece', NULL, 1000, '[\"https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=500\"]', '{\"Material\":\"Industrial Grade\",\"Warranty\":\"1 Year\"}', NULL, 'ACTIVE', 0, 0, 0, '2026-04-30 14:16:14.767', '2026-04-30 14:16:14.767', NULL);
 
 -- --------------------------------------------------------
 
@@ -299,10 +292,8 @@ CREATE TABLE `subscriptions` (
 --
 
 INSERT INTO `subscriptions` (`id`, `vendorId`, `plan`, `status`, `startDate`, `endDate`, `price`, `paymentId`, `razorpayOrderId`, `features`, `createdAt`, `updatedAt`) VALUES
-('cmochntrx0012sx3e95urwuk1', 'cmochntqt0004sx3epg9bd03d', 'PREMIUM', 'ACTIVE', '2026-04-24 05:47:25.438', '2027-04-24 05:47:25.436', 4999.00, NULL, NULL, NULL, '2026-04-24 05:47:25.438', '2026-04-24 05:47:25.438'),
-('cmochntrz0014sx3eqe7xeg4q', 'cmochntr00007sx3e70rz5ybh', 'BASIC', 'ACTIVE', '2026-04-24 05:47:25.440', '2026-05-24 05:47:25.439', 999.00, NULL, NULL, NULL, '2026-04-24 05:47:25.440', '2026-04-24 05:47:25.440'),
-('cmocsi6lh001239hzqgecmzdf', 'cmochntqt0004sx3epg9bd03d', 'PREMIUM', 'ACTIVE', '2026-04-24 10:50:57.894', '2027-04-24 10:50:57.892', 4999.00, NULL, NULL, NULL, '2026-04-24 10:50:57.894', '2026-04-24 10:50:57.894'),
-('cmocsi6lp001439hz8p788uy2', 'cmochntr00007sx3e70rz5ybh', 'BASIC', 'ACTIVE', '2026-04-24 10:50:57.902', '2026-05-24 10:50:57.900', 999.00, NULL, NULL, NULL, '2026-04-24 10:50:57.902', '2026-04-24 10:50:57.902');
+('cmolkhacv0012dqoehq82qjue', 'cmolkhach0004dqoewn3i6nl8', 'PREMIUM', 'ACTIVE', '2026-04-30 14:16:14.768', '2027-04-30 14:16:14.767', 4999.00, NULL, NULL, NULL, '2026-04-30 14:16:14.768', '2026-04-30 14:16:14.768'),
+('cmolkhacw0014dqoe8tozpzus', 'cmolkhacj0007dqoe19deus79', 'BASIC', 'ACTIVE', '2026-04-30 14:16:14.769', '2026-05-30 14:16:14.768', 999.00, NULL, NULL, NULL, '2026-04-30 14:16:14.769', '2026-04-30 14:16:14.769');
 
 -- --------------------------------------------------------
 
@@ -336,11 +327,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `role`, `status`, `emailVerified`, `phoneVerified`, `avatar`, `otp`, `otpExpiry`, `resetToken`, `resetTokenExpiry`, `lastLogin`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-('cmochntq30000sx3eb19arpnr', 'Super Admin', 'admin@example.com', '9900000001', '$2a$12$2AyZ4lNz4DfdXLgCZZbNou6LBmCYxEWQISg5yPMWm/WrDZvVnKSO6', 'SUPER_ADMIN', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, '2026-04-25 05:58:47.102', '2026-04-24 05:47:25.370', '2026-04-25 05:58:47.104', NULL),
-('cmochntql0001sx3eylhfvbmh', 'Sub Admin', 'subadmin@example.com', '9900000002', '$2a$12$2AyZ4lNz4DfdXLgCZZbNou6LBmCYxEWQISg5yPMWm/WrDZvVnKSO6', 'SUB_ADMIN', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-24 05:47:25.389', '2026-04-24 05:47:25.389', NULL),
-('cmochntqo0002sx3e1ii2q4bx', 'Rajesh Kumar', 'vendor@example.com', '9800000001', '$2a$12$dzADH4CMCrbNtJNpS19/oOErD6ak4VsZ4m8Z.rJloXne6Or/GGFtu', 'VENDOR', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, '2026-04-25 05:50:36.263', '2026-04-24 05:47:25.392', '2026-04-25 05:50:36.265', NULL),
-('cmochntqy0005sx3e1k6dypow', 'Priya Sharma', 'vendor2@example.com', '9800000002', '$2a$12$dzADH4CMCrbNtJNpS19/oOErD6ak4VsZ4m8Z.rJloXne6Or/GGFtu', 'VENDOR', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-24 05:47:25.402', '2026-04-24 05:47:25.402', NULL),
-('cmochntr30008sx3edh2sghuh', 'Amit Singh', 'user@example.com', '9700000001', '$2a$12$14BaHSyXkCS0J7eCDydNLu3AvAlv1AzcrewVyn78IiUlh7slzQgKG', 'BUYER', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, '2026-04-25 05:46:33.856', '2026-04-24 05:47:25.407', '2026-04-25 05:46:33.862', NULL);
+('cmolkhac60000dqoedu8zqjbd', 'Super Admin', 'admin@example.com', '9900000001', '$2a$12$ziHlx6eCS4005frgqlpZfOFNHCg5FzvnMUxnOEoPx0P88vqdwQ5jO', 'SUPER_ADMIN', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-30 14:16:14.742', '2026-04-30 14:16:14.742', NULL),
+('cmolkhacd0001dqoejjuul3xx', 'Sub Admin', 'subadmin@example.com', '9900000002', '$2a$12$ziHlx6eCS4005frgqlpZfOFNHCg5FzvnMUxnOEoPx0P88vqdwQ5jO', 'SUB_ADMIN', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-30 14:16:14.750', '2026-04-30 14:16:14.750', NULL),
+('cmolkhacg0002dqoehvh4lcg9', 'Rajesh Kumar', 'vendor@example.com', '9800000001', '$2a$12$Bo18bqNJHAdc5rw/RXxpiOfpnH1qrswoydzdVMrpo.E3zCrL4PPda', 'VENDOR', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-30 14:16:14.752', '2026-04-30 14:16:14.752', NULL),
+('cmolkhaci0005dqoebbd7rvdl', 'Priya Sharma', 'vendor2@example.com', '9800000002', '$2a$12$Bo18bqNJHAdc5rw/RXxpiOfpnH1qrswoydzdVMrpo.E3zCrL4PPda', 'VENDOR', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-30 14:16:14.755', '2026-04-30 14:16:14.755', NULL),
+('cmolkhack0008dqoe06dgh2h8', 'Amit Singh', 'user@example.com', '9700000001', '$2a$12$Z2cnTIDpE.b/ic78ckFPcuIJD3.CMivRJw2NFmgqYaLMitNvdzqeu', 'BUYER', 'ACTIVE', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2026-04-30 14:16:14.756', '2026-04-30 14:16:14.756', NULL);
 
 -- --------------------------------------------------------
 
@@ -380,8 +371,8 @@ CREATE TABLE `vendors` (
 --
 
 INSERT INTO `vendors` (`id`, `userId`, `companyName`, `gstNumber`, `panNumber`, `description`, `address`, `city`, `state`, `pincode`, `country`, `website`, `logo`, `banner`, `status`, `isVerified`, `totalProducts`, `totalLeads`, `totalViews`, `rating`, `reviewCount`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-('cmochntqt0004sx3epg9bd03d', 'cmochntqo0002sx3e1ii2q4bx', 'Rajesh Industrial Supplies', '29ABCDE1234F1Z5', 'ABCDE1234F', 'Leading supplier of industrial equipment and machinery since 2005.', '123 Industrial Estate, Sector 5', 'Mumbai', 'Maharashtra', '400001', 'India', NULL, NULL, NULL, 'APPROVED', 1, 0, 0, 12, 0, 0, '2026-04-24 05:47:25.397', '2026-04-25 05:51:13.685', NULL),
-('cmochntr00007sx3e70rz5ybh', 'cmochntqy0005sx3e1k6dypow', 'Priya Tech Components', '07FGHIJ5678K2L6', NULL, 'Electronic components and circuit boards manufacturer.', '45 Tech Park, Phase 2', 'Bangalore', 'Karnataka', '560001', 'India', NULL, NULL, NULL, 'APPROVED', 1, 0, 1, 2, 0, 0, '2026-04-24 05:47:25.404', '2026-04-25 05:46:56.431', NULL);
+('cmolkhach0004dqoewn3i6nl8', 'cmolkhacg0002dqoehvh4lcg9', 'Rajesh Industrial Supplies', '29ABCDE1234F1Z5', 'ABCDE1234F', 'Leading supplier of industrial equipment and machinery since 2005.', '123 Industrial Estate, Sector 5', 'Mumbai', 'Maharashtra', '400001', 'India', NULL, NULL, NULL, 'APPROVED', 1, 0, 0, 0, 0, 0, '2026-04-30 14:16:14.753', '2026-04-30 14:16:14.753', NULL),
+('cmolkhacj0007dqoe19deus79', 'cmolkhaci0005dqoebbd7rvdl', 'Priya Tech Components', '07FGHIJ5678K2L6', NULL, 'Electronic components and circuit boards manufacturer.', '45 Tech Park, Phase 2', 'Bangalore', 'Karnataka', '560001', 'India', NULL, NULL, NULL, 'APPROVED', 1, 0, 0, 0, 0, 0, '2026-04-30 14:16:14.755', '2026-04-30 14:16:14.755', NULL);
 
 -- --------------------------------------------------------
 
@@ -434,7 +425,7 @@ CREATE TABLE `_prisma_migrations` (
 --
 
 INSERT INTO `_prisma_migrations` (`id`, `checksum`, `finished_at`, `migration_name`, `logs`, `rolled_back_at`, `started_at`, `applied_steps_count`) VALUES
-('35d6108a-1de4-4eb1-9863-ebf40276aa68', 'd21728b7d151c1b5d8387b3e84565b3f1f38e8e0e30f156feaec75959685b22d', '2026-04-24 05:34:36.797', '20260424053435_init', NULL, NULL, '2026-04-24 05:34:35.842', 1);
+('d646319f-84cc-4fe4-b405-c917974c793d', 'd21728b7d151c1b5d8387b3e84565b3f1f38e8e0e30f156feaec75959685b22d', '2026-04-30 14:16:03.756', '20260425060628_init', NULL, NULL, '2026-04-30 14:16:03.359', 1);
 
 --
 -- Indexes for dumped tables
